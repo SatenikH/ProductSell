@@ -13,5 +13,17 @@ namespace ProductSell.Model
         {
             return Name;
         }
+        public override int GetHashCode()
+        {
+            return ProductID;
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is Product product )
+            {
+                return ProductID.Equals(product.ProductID);
+            }
+            return false;
+        }
     }
 }
