@@ -11,6 +11,11 @@ namespace SellUI
         {
             InitializeComponent();
         }
+        public CustomerForm(Customer customer):this()
+        {
+            Customer = customer;
+            textBox1.Text = Customer.Name;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Customer = new Customer

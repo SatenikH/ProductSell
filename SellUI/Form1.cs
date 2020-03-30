@@ -14,22 +14,22 @@ namespace SellUI
         }
         private void sellToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var catalogSeller = new Catalog<Seller>(db.Sellers);
+            var catalogSeller = new Catalog<Seller>(db.Sellers, db);
             catalogSeller.Show();
         }
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var catalogCustomer = new Catalog<Customer>(db.Customers);
+            var catalogCustomer = new Catalog<Customer>(db.Customers, db);
             catalogCustomer.Show();
         }
         private void productToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var catalogProduct = new Catalog<Product>(db.Products);
+            var catalogProduct = new Catalog<Product>(db.Products, db);
             catalogProduct.Show();
         }
         private void checkToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var catalogCheck = new Catalog<Check>(db.Checks);
+            var catalogCheck = new Catalog<Check>(db.Checks, db);
             catalogCheck.Show();
         }
         private void CustomerAddToolStripMenuItem2_Click_1(object sender, EventArgs e)

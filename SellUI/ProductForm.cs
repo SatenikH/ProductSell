@@ -11,14 +11,20 @@ namespace SellUI
         {
             InitializeComponent();
         }
+        public ProductForm(Product product):this()
+        {
+            this.Product = product;
+            textBox1.Text = Product.Name;
+            numericUpDown1.Value = Product.Price;
+            numericUpDown2.Value = Product.Count;
+        }
         private void Add_Click(object sender, EventArgs e)
         {
-            Product = new Product
-            {
-                Name = textBox1.Text,
-                Price = numericUpDown1.Value,
-                Count = (int)numericUpDown2.Value
-            };
+            var p = Product ?? new Product();
+            p.Name = textBox1.Text;
+            p.Price = numericUpDown1.Value;
+            p.Count = (int)numericUpDown2.Value;
+
             Close();
         }
     }

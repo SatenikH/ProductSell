@@ -11,6 +11,11 @@ namespace SellUI
         {
             InitializeComponent();
         }
+        public SellerForm(Seller seller):this()
+        {
+            Seller = seller;
+            textBox1.Text = Seller.Name;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Seller = new Seller
