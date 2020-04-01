@@ -43,19 +43,19 @@ namespace SellUI
         }
         private void SellerAddToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            var form = new SellerForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            var formseller = new SellerForm();
+            if (formseller.ShowDialog() == DialogResult.OK)
             {
-                db.Sellers.Add(form.Seller);
+                db.Sellers.Add(formseller.Seller);
                 db.SaveChanges();
             }
         }
         private void ProductAddToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = new ProductForm();
-            if (form.ShowDialog() == DialogResult.OK)
+            var formproduct = new ProductForm();
+            if (formproduct.ShowDialog() == DialogResult.OK)
             {
-                db.Products.Add(form.Product);
+                db.Products.Add(formproduct.Product);
                 db.SaveChanges();
             }
         }
