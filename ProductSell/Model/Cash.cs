@@ -13,7 +13,7 @@ namespace ProductSell.Model
         public int ExitCustomer { get; set; }
         public bool IsModel { get; set; }
         public object Enqueue { get; set; }
-
+        public int Count => Queue.Count;
         public Cash(int number, Seller seller)
         {
             Number = number;
@@ -30,7 +30,10 @@ namespace ProductSell.Model
         public decimal Dequeue()
         {
             decimal sum = 0;
-
+            if (Queue.Count == 0 )
+            {
+                return 0;
+            }
             var cart = Queue.Dequeue();
             if (cart != null)
             {
@@ -54,7 +57,7 @@ namespace ProductSell.Model
 
                 foreach (Product product in cart)
                 {
-                    if (product.Count >0)
+                    if (product.Count > 0)
                     {
                         var sell = new Sell()
                         {
