@@ -14,6 +14,9 @@ namespace ProductSell.Model
         public bool IsModel { get; set; }
         public object Enqueue { get; set; }
         public int Count => Queue.Count;
+
+        public event EventHandler<Check> checkClosed;
+
         public Cash(int number, Seller seller)
         {
             Number = number;
@@ -75,8 +78,13 @@ namespace ProductSell.Model
                         sum += product.Price;
                     }
                 }
+
+                check.Price = sum;
+
                 if (!IsModel)
                     db.SaveChanges();
+
+                checkClosed?.Invoke(this, check);
             }
             return sum;
         }
