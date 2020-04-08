@@ -59,5 +59,11 @@ namespace SellUI
                 db.SaveChanges();
             }
         }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ModelForm();
+            form.Show();
+        }
     }
 }

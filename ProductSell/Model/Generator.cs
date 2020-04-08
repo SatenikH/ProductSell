@@ -6,12 +6,8 @@ namespace ProductSell.Model
     public class Generator
     {
         Random rand = new Random();
-        //public List<Cart> Carts { get; set; }
-        //public List<Cash> Cashes { get; set; }
-        //public List<Check> Checks { get; set; }
         public List<Customer> Customers { get; set; } = new List<Customer>();
         public List<Product> Products { get; set; } = new List<Product>();
-       // public List<Sell> Sells { get; set; }
         public List<Seller> Sellers { get; set; } = new List<Seller>();
 
         public List<Customer> GetCustomer(int count)

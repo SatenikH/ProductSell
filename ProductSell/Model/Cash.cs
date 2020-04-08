@@ -23,6 +23,7 @@ namespace ProductSell.Model
             Seller = seller;
             Queue = new Queue<Cart>();
             IsModel = true;
+            MaxQueueCount = 10;
         }
         public void Unqueue(Cart Cart)
         {
@@ -87,6 +88,10 @@ namespace ProductSell.Model
                 checkClosed?.Invoke(this, check);
             }
             return sum;
+        }
+        public override string ToString()
+        {
+            return $"Cash No {Number}";
         }
     }
 }

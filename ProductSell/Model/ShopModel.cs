@@ -15,6 +15,8 @@ namespace ProductSell.Model
         public List<Cart> Carts { get; set; } = new List<Cart>();
         public List<Sell> Sells { get; set; } = new List<Sell>();
         public Queue<Seller> Sellers { get; set; } = new Queue<Seller>();
+        public int CustomerSpeed { get; set; } = 100;
+        public int CashSpeed { get; set; } = 100;
 
         Generator generator = new Generator();
         public ShopModel()
@@ -37,9 +39,9 @@ namespace ProductSell.Model
         public async void Start()
         {
             IsStart = true;
-            Task.Run(() => CreateCarts(10, 1000));
+            Task.Run(() => CreateCarts(10, CustomerSpeed));
 
-            var cashTask = Cashs.Select(c => new Task(() => CashStart(c, 1000)));
+            var cashTask = Cashs.Select(c => new Task(() => CashStart(c, CashSpeed)));
             foreach (var task in cashTask)
             {
                 task.Start();
@@ -62,7 +64,7 @@ namespace ProductSell.Model
                     {
                         cart.Add(product);
                     }
-                    var cash = Cashs[rand.Next(Cashs.Count - 1)];
+                    var cash = Cashs[rand.Next(Cashs.Count)];
                     cash.Unqueue(cart);
                 }
                 Thread.Sleep(sleep);
